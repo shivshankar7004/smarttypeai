@@ -1,8 +1,7 @@
 'use client';
-import { useState } from "react";
 import React from "react";
 import toast from "react-hot-toast";
-const page: React.FC = () => {
+const Page: React.FC = () => {
     const [name, setName] = React.useState("");
     const [email, setEmail] = React.useState("");
     const [message, setMessage] = React.useState("");
@@ -96,4 +95,4 @@ const page: React.FC = () => {
   );
 };
 
-export default page;
+export default Page;
