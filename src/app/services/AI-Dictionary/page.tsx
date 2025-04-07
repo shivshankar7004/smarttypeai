@@ -1,10 +1,11 @@
 "use client";
 import React, { use } from "react";
 import { useState, useEffect } from "react";
-import { fetchTypingData } from "../../api/aiWordsDictionary";
+// import { fetchTypingData } from "../../api/aiWordsDictionary";
+import { fetchTypingData } from "@/components/fetchTypingData";
 import AiTypingTest from "./AiTypingTest";
 
-const page: React.FC = () => {
+const Page: React.FC = () => {
   const [topic, setTopic] = useState<string>("");
   const [words, setWords] = useState<number>(10);
   const [response, setResponse] = useState<boolean>(false); // State to store the response from the API
@@ -24,6 +25,7 @@ const page: React.FC = () => {
     try {
        // Reset response state to false when a new search is initiated
       const tempData = await fetchTypingData(topic, words); // Fetch data from the API
+      console.log("Fetched data:", tempData); // Log the fetched data
       if (tempData.story) {
         setStory(tempData.story); // Store the fetched data in state
         setDescription(tempData.description); // Store the description in state
@@ -38,7 +40,6 @@ const page: React.FC = () => {
 
    
     }
-   // Set response state to true when data is fetched
   };
   useEffect(()=>{
     console.log("Story updated:", typeof story); // Log the updated story state
@@ -104,4 +105,4 @@ const page: React.FC = () => {
     );
   }
 };
-export default page;
+export default Page;

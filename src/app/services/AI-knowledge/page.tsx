@@ -1,10 +1,10 @@
 "use client";
 import React, { use } from "react";
 import { useState, useEffect } from "react";
-import { fetchTypingData } from "../../api/aiWords";
+import { fetchTypingData } from "@/components/fetchTypingData";
 import AiTypingTest from "./AiTypingTest";
 
-const page: React.FC = () => {
+const Page: React.FC = () => {
   const [topic, setTopic] = useState<string>("");
   const [words, setWords] = useState<number>(100);
   const [response, setResponse] = useState<boolean>(false); // State to store the response from the API
@@ -104,4 +104,4 @@ const page: React.FC = () => {
     );
   }
 };
-export default page;
+export default Page;
